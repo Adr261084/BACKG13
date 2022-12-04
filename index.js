@@ -6,7 +6,7 @@ const categoriaRouters = require("./Routers/categoriaRouters");
 const productoRouters = require("./Routers/productoRouters");
 const cors = require("cors");
 
-await (conectarDB()); //Conectar a la base de datos
+conectarDB(); //Conectar a la base de datos
 const app = express();
 
 app.use(cors()); //Habilitar cors
