@@ -7,7 +7,7 @@ module.exports = function (req, res, next) {
     //console.log(token);
     //Revisar token
     if (!token) {
-        return res.status(400).json({msg: "no hay token"});
+        return res.status(403).json({msg: "No hay token"});
     }
     //Validar el token
     try {
