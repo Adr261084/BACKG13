@@ -3,7 +3,7 @@ const router = express.Router();
 const authMiddleware = require("../middleware/authMiddleware");
 const productoController = require("../Controllers/productoController")
 
-router.get("/", authMiddleware, productoController.leerProducto);
+router.get("/", productoController.leerProducto);
 
 router.post("/", authMiddleware, productoController.crearProducto);
 

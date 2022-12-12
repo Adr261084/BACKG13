@@ -1,8 +1,9 @@
 const Producto = require("../Models/producto");
+const mongoose = require("mongoose");
 
 exports.leerProducto = async (req, res) => {
     try {
-        const producto = await Producto.find({creador:req.usuario.id});
+        const producto = await Producto.find();
         res.status(200).json({producto})
     } catch (e) {
         res.status(500).json({msg: e});
@@ -30,7 +31,7 @@ exports.actualizarProducto = async (req, res) => {
         producto.stock = req.body.stock || producto.stock;
         producto.precio = req.body.precio || producto.precio;
         producto.imagen = req.body.imagen || producto.imagen;
-        producto.categoriaId = req.body.categoriaId || producto.categoriaId;
+        producto.categoriaId = mongoose.Types.ObjectId(body.categoriaId || producto.categoriaId);
         producto.save();
         res.status(201).json(producto);
 
