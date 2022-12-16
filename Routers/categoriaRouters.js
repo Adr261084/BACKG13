@@ -5,6 +5,8 @@ const categoriaController = require("../Controllers/categoriaController")
 
 router.get("/", authMiddleware, categoriaController.leerCategoria);
 
+router.get("/home/", categoriaController.leerCategoriaHome);
+
 router.get("/:id", authMiddleware, categoriaController.leerCategoriaId);
 
 router.post("/", authMiddleware, categoriaController.crearCategoria);

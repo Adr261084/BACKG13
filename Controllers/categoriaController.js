@@ -1,5 +1,12 @@
 const Categoria = require("../Models/categoria");
-
+exports.leerCategoriaHome = async (req, res) => {
+    try {
+        const categoria = await Categoria.find();
+        res.status(200).json({categoria})
+    } catch (e) {
+        res.status(500).json({msg: e});
+    }
+}
 exports.leerCategoria = async (req, res) => {
     try {
         const categoria = await Categoria.find({creador: req.usuario.id});
@@ -44,6 +51,7 @@ exports.actualizarCategoria = async (req, res) => {
         }
 
         categoria.nombre = req.body.nombre || categoria.nombre;
+        categoria.imagen = req.body.imagen || categoria.imagen;
         categoria.save();
         res.status(201).json(categoria);
 
