@@ -37,7 +37,7 @@ exports.autenticarUsuario = async (req, res) => {
             }
         );
     } catch (error) {
-        console.log(error)
+        return res.status(501).json({"error": error});
     }
 }
 

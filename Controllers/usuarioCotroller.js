@@ -3,7 +3,6 @@ const Usuario = require("../Models/usuario");
 const bcryptjs = require("bcryptjs");
 
 exports.crearUsuario = async (req, res) => {
-    //console.log(req.body);
 
     const {password, email} = req.body;
     try {

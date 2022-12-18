@@ -66,7 +66,7 @@ exports.borrarCategoria = async (req, res) => {
         if (!categoria) {
             return res.status(404).json({msg: "Categoria no encontrada"});
         }
-        await Categoria.deleteOne({_Id: req.params.id});
+        await categoria.deleteOne();
         res.status(202).json({msg: "categoria eliminada"});
 
     } catch (e) {

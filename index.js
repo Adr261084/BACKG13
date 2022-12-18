@@ -4,7 +4,8 @@ const usuarioRouters = require("./Routers/usuarioRouters");
 const authRouters = require("./Routers/authRouters");
 const categoriaRouters = require("./Routers/categoriaRouters");
 const productoRouters = require("./Routers/productoRouters");
-const cors = require("cors");
+const pedidoRouters = require("./Routers/pedidoRouters");
+const cors   = require("cors");
 
 conectarDB(); //Conectar a la base de datos
 const app = express();
@@ -18,6 +19,7 @@ app.use("/api/usuarios", usuarioRouters);
 app.use("/api/auth", authRouters);
 app.use("/api/categoria", categoriaRouters);
 app.use("/api/producto", productoRouters);
+app.use("/api/pedido", pedidoRouters);
 
 app.listen(4000, () => {
     console.log("Servidor corriendo en el puerto 4000")
